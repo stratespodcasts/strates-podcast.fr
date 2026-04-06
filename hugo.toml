@@ -1,0 +1,30 @@
+baseURL = "https://strates-podcast.fr/"
+languageCode = "fr-FR"
+title = "STRATES"
+theme = "ananke"
+
+[params]
+  description = "Les Écoutes de la Profondeur · Découvrez l'Inexploré"
+  author = "STRATES"
+  favicon = ""
+  site_logo = ""
+  background_color_class = "bg-black"
+  featured_image = ""
+  recent_posts_number = 4
+
+[params.social]
+
+[[menus.main]]
+  name = "Podcasts"
+  url = "/podcasts/"
+  weight = 1
+
+[[menus.main]]
+  name = "À propos"
+  url = "/a-propos/"
+  weight = 2
+
+[[menus.main]]
+  name = "Soutenir"
+  url = "/soutenir/"
+  weight = 3
