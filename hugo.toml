@@ -1,4 +1,4 @@
-baseURL = "https://stratespodcasts.github.io/strates-podcast.fr/"
+baseURL = "https://strates-podcast.fr/"
 languageCode = "fr-FR"
 title = "STRATES"
 theme = "ananke"
