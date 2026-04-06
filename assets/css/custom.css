@@ -1,0 +1,31 @@
+:root {
+  --noir: #121212;
+  --bleu: #295079;
+  --argile: #C4934A;
+  --sable: #C8A97A;
+  --creme: #F5F0E5;
+}
+
+body {
+  background-color: var(--noir);
+  color: var(--creme);
+  font-family: Georgia, serif;
+}
+
+header, footer {
+  background-color: var(--noir) !important;
+  border-bottom: 2px solid var(--argile);
+}
+
+h1, h2, h3 {
+  color: var(--sable);
+  letter-spacing: 0.1em;
+}
+
+a {
+  color: var(--argile) !important;
+}
+
+a:hover {
+  color: var(--sable) !important;
+}
