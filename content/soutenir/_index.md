@@ -14,7 +14,9 @@ description: "Soutenir le label"
 <div class="about-block">
 <h3>Comment soutenir ?</h3>
 <p>Via Ko-fi, plateforme de soutien libre, sans abonnement, sans engagement. Un cafe offert suffit.</p>
-<a href="https://ko-fi.com/strates" class="podcast-btn" target="_blank">Soutenir sur Ko-fi</a>
+<a href="https://ko-fi.com/strates" target="_blank" class="kofi-link">
+<img src="/images/kofi-badge.png" alt="Soutenir sur Ko-fi" class="kofi-badge">
+</a>
 </div>
 <div class="about-block">
 <h3>Autres facons de soutenir</h3>
