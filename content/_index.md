@@ -143,6 +143,10 @@ spAudio.addEventListener('ended', function() {
 });
 
 async function spFetch() {
+  // Déplacer le lecteur dans le hero
+  var slot = document.getElementById('hero-player-slot');
+  var player = document.getElementById('strates-player').parentElement;
+  if (slot && player) slot.appendChild(player);
   var list = document.getElementById('sp-list');
   var allEps = [];
   for (var f of spFeeds) {
