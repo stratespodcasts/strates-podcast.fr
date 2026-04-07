@@ -102,7 +102,7 @@ article, .content-body {
  
 .podcasts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   margin: 48px 0;
   padding: 0 16px;
@@ -169,6 +169,60 @@ article, .content-body {
   text-align: center;
   margin: 48px 0 0 0;
 }
+
+a.podcast-card {
+  text-decoration: none !important;
+  display: block;
+}
+.podcast-page {
+  display: flex;
+  gap: 40px;
+  margin: 40px 0;
+  align-items: flex-start;
+}
+
+.podcast-page img {
+  width: 300px;
+  flex-shrink: 0;
+  border: 1px solid var(--argile);
+}
+
+.podcast-page-content p {
+  color: var(--creme);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.podcast-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--bleu);
+  color: var(--creme) !important;
+  text-decoration: none !important;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin-top: 16px;
+  border: 1px solid var(--argile);
+  transition: background 0.2s;
+}
+
+.podcast-btn:hover {
+  background: var(--argile) !important;
+  color: var(--noir) !important;
+}
+
+@media (max-width: 640px) {
+  .podcast-page {
+    flex-direction: column;
+  }
+  .podcast-page img {
+    width: 100%;
+  }
+  .podcasts-grid {
+    grid-template-columns: 1fr;
+  }
+}
 </style>
   </head><body class="ma0 avenir bg-near-white development is-home">
     
@@ -230,49 +284,49 @@ article, .content-body {
 
     <main class="pb7" role="main">
       <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray">
-    <p>Quatre podcasts. Une exigence. Tout explorer, ne rien figer.</p>
+    <p>Des podcasts. Une exigence. Tout explorer, ne rien figer.</p>
 <p class="podcasts-section-title">Nos emissions</p>
 <div class="podcasts-grid">
-<div class="podcast-card">
+<a href="/podcasts/good-morning-la-galaxie/" class="podcast-card">
 <img src="/images/goodmorning.png" alt="Good Morning la Galaxie">
 <div class="podcast-card-body">
 <p class="podcast-card-title">Good Morning la Galaxie</p>
 <p class="podcast-card-desc">6 bonnes actus de la semaine et des decouvertes musicales Bandcamp.</p>
 <span class="podcast-card-status status-live">En ligne</span>
 </div>
-</div>
-<div class="podcast-card">
+</a>
+<a href="/podcasts/candide-en-vers/" class="podcast-card">
 <img src="/images/candide.png" alt="Candide en Vers">
 <div class="podcast-card-body">
 <p class="podcast-card-title">Candide en Vers</p>
 <p class="podcast-card-desc">La poesie francaise expliquee aux curieux. Un theme, des voix, une emotion.</p>
 <span class="podcast-card-status status-live">En ligne</span>
 </div>
-</div>
-<div class="podcast-card">
+</a>
+<a href="/podcasts/le-temoin/" class="podcast-card">
 <img src="/images/letemoin.png" alt="Le Temoin">
 <div class="podcast-card-body">
 <p class="podcast-card-title">Le Temoin</p>
 <p class="podcast-card-desc">Des monologues de temoins inattendus de moments pop culture.</p>
 <span class="podcast-card-status status-soon">Juillet 2026</span>
 </div>
-</div>
-<div class="podcast-card">
+</a>
+<a href="/podcasts/juste-avant/" class="podcast-card">
 <img src="/images/justavant.png" alt="Juste Avant">
 <div class="podcast-card-body">
 <p class="podcast-card-title">Juste Avant</p>
 <p class="podcast-card-desc">Fiction anthologique horreur et SF. La Voix de Controle. Neuf episodes.</p>
 <span class="podcast-card-status status-tbd">Janvier 2027</span>
 </div>
-</div>
-<div class="podcast-card">
+</a>
+<a href="/podcasts/dispatch/" class="podcast-card">
 <img src="/images/dispatch.png" alt="Dispatch">
 <div class="podcast-card-body">
 <p class="podcast-card-title">Dispatch</p>
 <p class="podcast-card-desc">Un pere et sa fille. Une agence qui n existe pas. Des missions qui changent tout.</p>
 <span class="podcast-card-status status-tbd">Bientot</span>
 </div>
-</div>
+</a>
 </div>
   </article>
 
@@ -282,6 +336,159 @@ article, .content-body {
   
   
 
+  
+    <div class="pa3 pa4-ns w-100 w-70-ns center">
+      
+
+      <section class="w-100 mw8">
+        
+        
+          <div class="w-100 mb4 relative">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
+    <div class="flex-column flex-row-ns flex">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/podcasts/candide-en-vers/" class="color-inherit dim link">
+            Candide en Vers
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          <div class="podcast-page">
+<img src="/images/candide.png" alt="Candide en Vers">
+<div class="podcast-page-content">
+<span class="podcast-card-status status-live">En ligne</span>
+<p>La poesie francaise expliquee aux curieux non-experts. Chaque episode explore un theme universel a travers des voix poetiques selectionnees avec soin.</p>
+<p>Un podcast pour (re)decouvrir la poesie sans pretention, avec emotion.</p>
+<p>Format : Mensuel, chaque 1er dimanche du mois</p>
+<a href="https://www.ausha.co" class="podcast-btn" target="_blank">Ecouter sur Ausha</a>
+</div>
+</div>
+        </div>
+        
+          <p class="f6 lh-copy mv0">By STRATES</p><a href="/podcasts/candide-en-vers/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="w-100 mb4 relative">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
+    <div class="flex-column flex-row-ns flex">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/podcasts/dispatch/" class="color-inherit dim link">
+            Dispatch
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          <div class="podcast-page">
+<img src="/images/dispatch.png" alt="Dispatch">
+<div class="podcast-page-content">
+<span class="podcast-card-status status-tbd">Bientot</span>
+<p>Flint est sur le terrain. Vega est dans son oreillette. Un pere et sa fille. Une agence qui n existe pas. Des affaires qui ne devraient pas exister.</p>
+<p>Chaque episode, un univers different. Comedie, thriller, fantastique, SF. Dispatch ne se repete jamais.</p>
+<p>Format : Irregulier</p>
+</div>
+</div>
+        </div>
+        
+          <p class="f6 lh-copy mv0">By STRATES</p><a href="/podcasts/dispatch/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="w-100 mb4 relative">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
+    <div class="flex-column flex-row-ns flex">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/podcasts/good-morning-la-galaxie/" class="color-inherit dim link">
+            Good Morning la Galaxie
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          <div class="podcast-page">
+<img src="/images/goodmorning.png" alt="Good Morning la Galaxie" class="podcast-page-img">
+<div class="podcast-page-content">
+<span class="podcast-card-status status-live">En ligne</span>
+<p>Chaque semaine, 6 bonnes nouvelles du monde entier. Et pour chaque actualite, une decouverte musicale Bandcamp en resonance avec le pays ou le theme de l info.</p>
+<p>Un podcast pour commencer la semaine autrement. Curieux, ouvert, musical.</p>
+<p>Format : Hebdomadaire, chaque dimanche</p>
+<a href="https://www.ausha.co" class="podcast-btn" target="_blank">Ecouter sur Ausha</a>
+</div>
+</div>
+        </div>
+        
+          <p class="f6 lh-copy mv0">By STRATES</p><a href="/podcasts/good-morning-la-galaxie/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+          <div class="w-100 mb4 relative">
+            
+<article class="bb b--black-10">
+  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
+    <div class="flex-column flex-row-ns flex">
+      
+      <div class="blah w-100">
+        <h1 class="f3 fw1 athelas mt0 lh-title">
+          <a href="/podcasts/juste-avant/" class="color-inherit dim link">
+            Juste Avant
+            </a>
+        </h1>
+        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
+          <div class="podcast-page">
+<img src="/images/justavant.png" alt="Juste Avant">
+<div class="podcast-page-content">
+<span class="podcast-card-status status-tbd">Janvier 2027</span>
+<p>Fiction anthologique dans l esprit d Au-dela du Reel. Chaque episode est une histoire complete avec ses propres personnages. Un fil rouge secret traverse toute la saison.</p>
+<p>Horreur, SF, demoniaque, voyage dans le temps. Et une Voix de Controle qui sait des choses qu elle ne devrait pas savoir.</p>
+<p>Saison 1 : 9 episodes + 2 fins alternatives. L auditeur choisit sa fin.</p>
+<p>Format : A partir de janvier 2027</p>
+        </div>
+        
+          <p class="f6 lh-copy mv0">By STRATES</p><a href="/podcasts/juste-avant/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
+      </div>
+    </div>
+  </div>
+</article>
+
+          </div>
+        
+      </section>
+
+      
+        <section class="w-100">
+          <h1 class="f3">More</h1>
+          
+          
+            <h2 class="f5 fw4 mb4 dib mr3">
+              <a href="/podcasts/le-temoin/" class="link black dim">
+                Le Temoin
+              </a>
+            </h2>
+          
+        </section>
+      
+
+    </div>
   
 
     </main>

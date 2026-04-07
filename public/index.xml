@@ -7,5 +7,40 @@
     <generator>Hugo</generator>
     <language>fr-FR</language>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Candide en Vers</title>
+      <link>http://localhost:1313/podcasts/candide-en-vers/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/podcasts/candide-en-vers/</guid>
+      <description>&lt;div class=&#34;podcast-page&#34;&gt;&#xA;&lt;img src=&#34;http://localhost:1313/images/candide.png&#34; alt=&#34;Candide en Vers&#34;&gt;&#xA;&lt;div class=&#34;podcast-page-content&#34;&gt;&#xA;&lt;span class=&#34;podcast-card-status status-live&#34;&gt;En ligne&lt;/span&gt;&#xA;&lt;p&gt;La poesie francaise expliquee aux curieux non-experts. Chaque episode explore un theme universel a travers des voix poetiques selectionnees avec soin.&lt;/p&gt;&#xA;&lt;p&gt;Un podcast pour (re)decouvrir la poesie sans pretention, avec emotion.&lt;/p&gt;&#xA;&lt;p&gt;Format : Mensuel, chaque 1er dimanche du mois&lt;/p&gt;&#xA;&lt;a href=&#34;https://www.ausha.co&#34; class=&#34;podcast-btn&#34; target=&#34;_blank&#34;&gt;Ecouter sur Ausha&lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Dispatch</title>
+      <link>http://localhost:1313/podcasts/dispatch/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/podcasts/dispatch/</guid>
+      <description>&lt;div class=&#34;podcast-page&#34;&gt;&#xA;&lt;img src=&#34;http://localhost:1313/images/dispatch.png&#34; alt=&#34;Dispatch&#34;&gt;&#xA;&lt;div class=&#34;podcast-page-content&#34;&gt;&#xA;&lt;span class=&#34;podcast-card-status status-tbd&#34;&gt;Bientot&lt;/span&gt;&#xA;&lt;p&gt;Flint est sur le terrain. Vega est dans son oreillette. Un pere et sa fille. Une agence qui n existe pas. Des affaires qui ne devraient pas exister.&lt;/p&gt;&#xA;&lt;p&gt;Chaque episode, un univers different. Comedie, thriller, fantastique, SF. Dispatch ne se repete jamais.&lt;/p&gt;&#xA;&lt;p&gt;Format : Irregulier&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Good Morning la Galaxie</title>
+      <link>http://localhost:1313/podcasts/good-morning-la-galaxie/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/podcasts/good-morning-la-galaxie/</guid>
+      <description>&lt;div class=&#34;podcast-page&#34;&gt;&#xA;&lt;img src=&#34;http://localhost:1313/images/goodmorning.png&#34; alt=&#34;Good Morning la Galaxie&#34; class=&#34;podcast-page-img&#34;&gt;&#xA;&lt;div class=&#34;podcast-page-content&#34;&gt;&#xA;&lt;span class=&#34;podcast-card-status status-live&#34;&gt;En ligne&lt;/span&gt;&#xA;&lt;p&gt;Chaque semaine, 6 bonnes nouvelles du monde entier. Et pour chaque actualite, une decouverte musicale Bandcamp en resonance avec le pays ou le theme de l info.&lt;/p&gt;&#xA;&lt;p&gt;Un podcast pour commencer la semaine autrement. Curieux, ouvert, musical.&lt;/p&gt;&#xA;&lt;p&gt;Format : Hebdomadaire, chaque dimanche&lt;/p&gt;&#xA;&lt;a href=&#34;https://www.ausha.co&#34; class=&#34;podcast-btn&#34; target=&#34;_blank&#34;&gt;Ecouter sur Ausha&lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Juste Avant</title>
+      <link>http://localhost:1313/podcasts/juste-avant/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/podcasts/juste-avant/</guid>
+      <description>&lt;div class=&#34;podcast-page&#34;&gt;&#xA;&lt;img src=&#34;http://localhost:1313/images/justavant.png&#34; alt=&#34;Juste Avant&#34;&gt;&#xA;&lt;div class=&#34;podcast-page-content&#34;&gt;&#xA;&lt;span class=&#34;podcast-card-status status-tbd&#34;&gt;Janvier 2027&lt;/span&gt;&#xA;&lt;p&gt;Fiction anthologique dans l esprit d Au-dela du Reel. Chaque episode est une histoire complete avec ses propres personnages. Un fil rouge secret traverse toute la saison.&lt;/p&gt;&#xA;&lt;p&gt;Horreur, SF, demoniaque, voyage dans le temps. Et une Voix de Controle qui sait des choses qu elle ne devrait pas savoir.&lt;/p&gt;&#xA;&lt;p&gt;Saison 1 : 9 episodes + 2 fins alternatives. L auditeur choisit sa fin.&lt;/p&gt;&#xA;&lt;p&gt;Format : A partir de janvier 2027&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Le Temoin</title>
+      <link>http://localhost:1313/podcasts/le-temoin/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/podcasts/le-temoin/</guid>
+      <description>&lt;div class=&#34;podcast-page&#34;&gt;&#xA;&lt;img src=&#34;http://localhost:1313/images/letemoin.png&#34; alt=&#34;Le Temoin&#34;&gt;&#xA;&lt;div class=&#34;podcast-page-content&#34;&gt;&#xA;&lt;span class=&#34;podcast-card-status status-soon&#34;&gt;Juillet 2026&lt;/span&gt;&#xA;&lt;p&gt;Des episodes narres par des temoins ou objets inattendus d un moment pop culture. Format hybride entre documentaire imaginaire et monologue de fiction.&lt;/p&gt;&#xA;&lt;p&gt;Chaque episode, une voix. Chaque voix, un angle que personne n avait imagine.&lt;/p&gt;&#xA;&lt;p&gt;Format : Hebdomadaire a partir de juillet 2026&lt;/p&gt;&#xA;&lt;a href=&#34;https://www.ausha.co&#34; class=&#34;podcast-btn&#34; target=&#34;_blank&#34;&gt;Bientot sur Ausha&lt;/a&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
+    </item>
   </channel>
 </rss>

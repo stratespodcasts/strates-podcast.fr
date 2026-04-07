@@ -39,7 +39,7 @@ article, .content-body {
 /* GRILLE PODCASTS */
 .podcasts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   margin: 48px 0;
   padding: 0 16px;
@@ -105,5 +105,59 @@ article, .content-body {
   color: var(--argile);
   text-align: center;
   margin: 48px 0 0 0;
+}
+
+a.podcast-card {
+  text-decoration: none !important;
+  display: block;
+}
+.podcast-page {
+  display: flex;
+  gap: 40px;
+  margin: 40px 0;
+  align-items: flex-start;
+}
+
+.podcast-page img {
+  width: 300px;
+  flex-shrink: 0;
+  border: 1px solid var(--argile);
+}
+
+.podcast-page-content p {
+  color: var(--creme);
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.podcast-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--bleu);
+  color: var(--creme) !important;
+  text-decoration: none !important;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  margin-top: 16px;
+  border: 1px solid var(--argile);
+  transition: background 0.2s;
+}
+
+.podcast-btn:hover {
+  background: var(--argile) !important;
+  color: var(--noir) !important;
+}
+
+@media (max-width: 640px) {
+  .podcast-page {
+    flex-direction: column;
+  }
+  .podcast-page img {
+    width: 100%;
+  }
+  .podcasts-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

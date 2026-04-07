@@ -4,7 +4,17 @@
   <url>
     <loc>http://localhost:1313/a-propos/</loc>
   </url><url>
+    <loc>http://localhost:1313/podcasts/candide-en-vers/</loc>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/podcasts/dispatch/</loc>
+  </url><url>
+    <loc>http://localhost:1313/podcasts/good-morning-la-galaxie/</loc>
+  </url><url>
+    <loc>http://localhost:1313/podcasts/juste-avant/</loc>
+  </url><url>
+    <loc>http://localhost:1313/podcasts/le-temoin/</loc>
   </url><url>
     <loc>http://localhost:1313/podcasts/</loc>
   </url><url>
