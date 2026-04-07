@@ -61,13 +61,37 @@
   <meta name="twitter:title" content="STRATES">
   <meta name="twitter:description" content="Les Ecoutes de la Profondeur">
 
-	<style>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
 :root {
   --noir: #121212;
   --bleu: #295079;
   --argile: #C4934A;
   --sable: #C8A97A;
   --creme: #F5F0E5;
+}
+
+body {
+  font-family: 'Jost', sans-serif !important;
+  font-weight: 300;
+}
+
+h1, h2, h3, .podcast-card-title, .podcasts-section-title {
+  font-family: 'Cinzel', serif !important;
+}
+
+.podcast-card-desc, article p, .podcast-page-content p {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.1rem !important;
+  line-height: 1.8 !important;
+}
+
+nav a, header a {
+  font-family: 'Jost', sans-serif !important;
+  letter-spacing: 0.15em;
+  font-weight: 400;
 }
 
 body {
@@ -104,8 +128,9 @@ article, .content-body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  margin: 48px 0;
+  margin: 48px auto;
   padding: 0 16px;
+  max-width: 700px;
 }
 
 .podcast-card {
@@ -223,6 +248,45 @@ a.podcast-card {
     grid-template-columns: 1fr;
   }
 }
+.about-page {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.about-intro {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.3rem !important;
+  font-style: italic;
+  color: var(--sable) !important;
+  line-height: 1.8 !important;
+  margin-bottom: 40px !important;
+}
+
+.about-block {
+  margin-bottom: 36px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(196,147,74,0.2);
+}
+
+.about-block:last-child {
+  border-bottom: none;
+}
+
+.about-block h3 {
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.25em;
+  color: var(--argile) !important;
+  margin-bottom: 14px !important;
+}
+
+.about-block p {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.05rem !important;
+  color: rgba(245,240,229,0.75) !important;
+  line-height: 1.8 !important;
+}
 </style>
   </head><body class="ma0 avenir bg-near-white development is-home">
     
@@ -283,8 +347,9 @@ a.podcast-card {
 
 
     <main class="pb7" role="main">
-      <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray">
-    <p>Des podcasts. Une exigence. Tout explorer, ne rien figer.</p>
+      
+<div class="ph3 ph5-l pv3 pv4-l center">
+  <p>Des podcasts. Une exigence. Tout explorer, ne rien figer.</p>
 <p class="podcasts-section-title">Nos emissions</p>
 <div class="podcasts-grid">
 <a href="/podcasts/good-morning-la-galaxie/" class="podcast-card">
@@ -328,168 +393,7 @@ a.podcast-card {
 </div>
 </a>
 </div>
-  </article>
-
-  
-  
-  
-  
-  
-
-  
-    <div class="pa3 pa4-ns w-100 w-70-ns center">
-      
-
-      <section class="w-100 mw8">
-        
-        
-          <div class="w-100 mb4 relative">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
-    <div class="flex-column flex-row-ns flex">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/podcasts/candide-en-vers/" class="color-inherit dim link">
-            Candide en Vers
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          <div class="podcast-page">
-<img src="/images/candide.png" alt="Candide en Vers">
-<div class="podcast-page-content">
-<span class="podcast-card-status status-live">En ligne</span>
-<p>La poesie francaise expliquee aux curieux non-experts. Chaque episode explore un theme universel a travers des voix poetiques selectionnees avec soin.</p>
-<p>Un podcast pour (re)decouvrir la poesie sans pretention, avec emotion.</p>
-<p>Format : Mensuel, chaque 1er dimanche du mois</p>
-<a href="https://www.ausha.co" class="podcast-btn" target="_blank">Ecouter sur Ausha</a>
 </div>
-</div>
-        </div>
-        
-          <p class="f6 lh-copy mv0">By STRATES</p><a href="/podcasts/candide-en-vers/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-          <div class="w-100 mb4 relative">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
-    <div class="flex-column flex-row-ns flex">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/podcasts/dispatch/" class="color-inherit dim link">
-            Dispatch
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          <div class="podcast-page">
-<img src="/images/dispatch.png" alt="Dispatch">
-<div class="podcast-page-content">
-<span class="podcast-card-status status-tbd">Bientot</span>
-<p>Flint est sur le terrain. Vega est dans son oreillette. Un pere et sa fille. Une agence qui n existe pas. Des affaires qui ne devraient pas exister.</p>
-<p>Chaque episode, un univers different. Comedie, thriller, fantastique, SF. Dispatch ne se repete jamais.</p>
-<p>Format : Irregulier</p>
-</div>
-</div>
-        </div>
-        
-          <p class="f6 lh-copy mv0">By STRATES</p><a href="/podcasts/dispatch/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-          <div class="w-100 mb4 relative">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
-    <div class="flex-column flex-row-ns flex">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/podcasts/good-morning-la-galaxie/" class="color-inherit dim link">
-            Good Morning la Galaxie
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          <div class="podcast-page">
-<img src="/images/goodmorning.png" alt="Good Morning la Galaxie" class="podcast-page-img">
-<div class="podcast-page-content">
-<span class="podcast-card-status status-live">En ligne</span>
-<p>Chaque semaine, 6 bonnes nouvelles du monde entier. Et pour chaque actualite, une decouverte musicale Bandcamp en resonance avec le pays ou le theme de l info.</p>
-<p>Un podcast pour commencer la semaine autrement. Curieux, ouvert, musical.</p>
-<p>Format : Hebdomadaire, chaque dimanche</p>
-<a href="https://www.ausha.co" class="podcast-btn" target="_blank">Ecouter sur Ausha</a>
-</div>
-</div>
-        </div>
-        
-          <p class="f6 lh-copy mv0">By STRATES</p><a href="/podcasts/good-morning-la-galaxie/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-          <div class="w-100 mb4 relative">
-            
-<article class="bb b--black-10">
-  <div class="db pv4 ph3 ph0-l dark-gray no-underline">
-    <div class="flex-column flex-row-ns flex">
-      
-      <div class="blah w-100">
-        <h1 class="f3 fw1 athelas mt0 lh-title">
-          <a href="/podcasts/juste-avant/" class="color-inherit dim link">
-            Juste Avant
-            </a>
-        </h1>
-        <div class="f6 f5-l lh-copy nested-copy-line-height nested-links">
-          <div class="podcast-page">
-<img src="/images/justavant.png" alt="Juste Avant">
-<div class="podcast-page-content">
-<span class="podcast-card-status status-tbd">Janvier 2027</span>
-<p>Fiction anthologique dans l esprit d Au-dela du Reel. Chaque episode est une histoire complete avec ses propres personnages. Un fil rouge secret traverse toute la saison.</p>
-<p>Horreur, SF, demoniaque, voyage dans le temps. Et une Voix de Controle qui sait des choses qu elle ne devrait pas savoir.</p>
-<p>Saison 1 : 9 episodes + 2 fins alternatives. L auditeur choisit sa fin.</p>
-<p>Format : A partir de janvier 2027</p>
-        </div>
-        
-          <p class="f6 lh-copy mv0">By STRATES</p><a href="/podcasts/juste-avant/" class="ba b--moon-gray bg-light-gray br2 color-inherit dib f7 hover-bg-moon-gray link mt2 ph2 pv1">read more</a>
-      </div>
-    </div>
-  </div>
-</article>
-
-          </div>
-        
-      </section>
-
-      
-        <section class="w-100">
-          <h1 class="f3">More</h1>
-          
-          
-            <h2 class="f5 fw4 mb4 dib mr3">
-              <a href="/podcasts/le-temoin/" class="link black dim">
-                Le Temoin
-              </a>
-            </h2>
-          
-        </section>
-      
-
-    </div>
-  
 
     </main>
     <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">

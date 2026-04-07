@@ -57,13 +57,37 @@
   <meta name="twitter:title" content="Dispatch">
   <meta name="twitter:description" content="Un pere et sa fille. Une agence qui n existe pas.">
 
-	<style>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
 :root {
   --noir: #121212;
   --bleu: #295079;
   --argile: #C4934A;
   --sable: #C8A97A;
   --creme: #F5F0E5;
+}
+
+body {
+  font-family: 'Jost', sans-serif !important;
+  font-weight: 300;
+}
+
+h1, h2, h3, .podcast-card-title, .podcasts-section-title {
+  font-family: 'Cinzel', serif !important;
+}
+
+.podcast-card-desc, article p, .podcast-page-content p {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.1rem !important;
+  line-height: 1.8 !important;
+}
+
+nav a, header a {
+  font-family: 'Jost', sans-serif !important;
+  letter-spacing: 0.15em;
+  font-weight: 400;
 }
 
 body {
@@ -100,8 +124,9 @@ article, .content-body {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  margin: 48px 0;
+  margin: 48px auto;
   padding: 0 16px;
+  max-width: 700px;
 }
 
 .podcast-card {
@@ -218,6 +243,45 @@ a.podcast-card {
   .podcasts-grid {
     grid-template-columns: 1fr;
   }
+}
+.about-page {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.about-intro {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.3rem !important;
+  font-style: italic;
+  color: var(--sable) !important;
+  line-height: 1.8 !important;
+  margin-bottom: 40px !important;
+}
+
+.about-block {
+  margin-bottom: 36px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(196,147,74,0.2);
+}
+
+.about-block:last-child {
+  border-bottom: none;
+}
+
+.about-block h3 {
+  font-family: 'Cinzel', serif !important;
+  font-size: 0.85rem !important;
+  letter-spacing: 0.25em;
+  color: var(--argile) !important;
+  margin-bottom: 14px !important;
+}
+
+.about-block p {
+  font-family: 'Cormorant Garamond', serif !important;
+  font-size: 1.05rem !important;
+  color: rgba(245,240,229,0.75) !important;
+  line-height: 1.8 !important;
 }
 </style>
   </head><body class="ma0 avenir bg-near-white development is-page is-page page-dispatch">

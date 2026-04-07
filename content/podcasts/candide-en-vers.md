@@ -10,6 +10,6 @@ description: "La poesie francaise expliquee aux curieux"
 <p>La poesie francaise expliquee aux curieux non-experts. Chaque episode explore un theme universel a travers des voix poetiques selectionnees avec soin.</p>
 <p>Un podcast pour (re)decouvrir la poesie sans pretention, avec emotion.</p>
 <p>Format : Mensuel, chaque 1er dimanche du mois</p>
-<a href="https://www.ausha.co" class="podcast-btn" target="_blank">Ecouter sur Ausha</a>
+<a href="https://podcast.ausha.co/candide-en-vers" class="podcast-btn" target="_blank">Ecouter sur Ausha</a>
 </div>
 </div>
