@@ -4,7 +4,7 @@ featured_image: ""
 description: "Les Ecoutes de la Profondeur"
 ---
 
-Des podcasts. Une exigence. Tout explorer, ne rien figer.
+<p class="home-intro">Des podcasts. Une exigence. Tout explorer, ne rien figer.</p>
 
 <p class="podcasts-section-title">Nos emissions</p>
 
