@@ -97,6 +97,77 @@ article, .content-body {
   background-color: var(--noir) !important;
   color: var(--creme) !important;
 }
+
+ 
+.podcasts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin: 48px 0;
+  padding: 0 16px;
+}
+
+.podcast-card {
+  background: #1C1C1C;
+  border: 1px solid var(--argile);
+  overflow: hidden;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.podcast-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--sable);
+}
+
+.podcast-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+}
+
+.podcast-card-body {
+  padding: 16px;
+}
+
+.podcast-card-title {
+  font-family: Georgia, serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: var(--sable);
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+}
+
+.podcast-card-desc {
+  font-size: 0.8rem;
+  color: rgba(245,240,229,0.6);
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+}
+
+.podcast-card-status {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 1px solid currentColor;
+  display: inline-block;
+}
+
+.status-live { color: #4CAF50; }
+.status-soon { color: var(--argile); }
+.status-tbd { color: var(--bleu); }
+
+.podcasts-section-title {
+  font-family: Georgia, serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--argile);
+  text-align: center;
+  margin: 48px 0 0 0;
+}
 </style>
   </head><body class="ma0 avenir bg-near-white development is-taxonomy">
     

@@ -56,7 +56,7 @@
 
   <meta itemprop="name" content="STRATES">
   <meta itemprop="description" content="Les Ecoutes de la Profondeur">
-  <meta itemprop="wordCount" content="17">
+  <meta itemprop="wordCount" content="91">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="STRATES">
   <meta name="twitter:description" content="Les Ecoutes de la Profondeur">
@@ -97,6 +97,77 @@ a:hover { color: var(--sable) !important; }
 article, .content-body {
   background-color: var(--noir) !important;
   color: var(--creme) !important;
+}
+
+ 
+.podcasts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
+  margin: 48px 0;
+  padding: 0 16px;
+}
+
+.podcast-card {
+  background: #1C1C1C;
+  border: 1px solid var(--argile);
+  overflow: hidden;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.podcast-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--sable);
+}
+
+.podcast-card img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+}
+
+.podcast-card-body {
+  padding: 16px;
+}
+
+.podcast-card-title {
+  font-family: Georgia, serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  color: var(--sable);
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+}
+
+.podcast-card-desc {
+  font-size: 0.8rem;
+  color: rgba(245,240,229,0.6);
+  line-height: 1.5;
+  margin: 0 0 12px 0;
+}
+
+.podcast-card-status {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 1px solid currentColor;
+  display: inline-block;
+}
+
+.status-live { color: #4CAF50; }
+.status-soon { color: var(--argile); }
+.status-tbd { color: var(--bleu); }
+
+.podcasts-section-title {
+  font-family: Georgia, serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--argile);
+  text-align: center;
+  margin: 48px 0 0 0;
 }
 </style>
   </head><body class="ma0 avenir bg-near-white development is-home">
@@ -159,10 +230,50 @@ article, .content-body {
 
     <main class="pb7" role="main">
       <article class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy nested-links mid-gray">
-    <p>Quatre podcasts. Une exigence.</p>
-<p>Strates est un label de podcasts independant francais.</p>
-<p>Tout explorer, ne rien figer.</p>
-
+    <p>Quatre podcasts. Une exigence. Tout explorer, ne rien figer.</p>
+<p class="podcasts-section-title">Nos emissions</p>
+<div class="podcasts-grid">
+<div class="podcast-card">
+<img src="/images/goodmorning.png" alt="Good Morning la Galaxie">
+<div class="podcast-card-body">
+<p class="podcast-card-title">Good Morning la Galaxie</p>
+<p class="podcast-card-desc">6 bonnes actus de la semaine et des decouvertes musicales Bandcamp.</p>
+<span class="podcast-card-status status-live">En ligne</span>
+</div>
+</div>
+<div class="podcast-card">
+<img src="/images/candide.png" alt="Candide en Vers">
+<div class="podcast-card-body">
+<p class="podcast-card-title">Candide en Vers</p>
+<p class="podcast-card-desc">La poesie francaise expliquee aux curieux. Un theme, des voix, une emotion.</p>
+<span class="podcast-card-status status-live">En ligne</span>
+</div>
+</div>
+<div class="podcast-card">
+<img src="/images/letemoin.png" alt="Le Temoin">
+<div class="podcast-card-body">
+<p class="podcast-card-title">Le Temoin</p>
+<p class="podcast-card-desc">Des monologues de temoins inattendus de moments pop culture.</p>
+<span class="podcast-card-status status-soon">Juillet 2026</span>
+</div>
+</div>
+<div class="podcast-card">
+<img src="/images/justavant.png" alt="Juste Avant">
+<div class="podcast-card-body">
+<p class="podcast-card-title">Juste Avant</p>
+<p class="podcast-card-desc">Fiction anthologique horreur et SF. La Voix de Controle. Neuf episodes.</p>
+<span class="podcast-card-status status-tbd">Janvier 2027</span>
+</div>
+</div>
+<div class="podcast-card">
+<img src="/images/dispatch.png" alt="Dispatch">
+<div class="podcast-card-body">
+<p class="podcast-card-title">Dispatch</p>
+<p class="podcast-card-desc">Un pere et sa fille. Une agence qui n existe pas. Des missions qui changent tout.</p>
+<span class="podcast-card-status status-tbd">Bientot</span>
+</div>
+</div>
+</div>
   </article>
 
   
