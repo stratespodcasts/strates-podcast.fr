@@ -6,6 +6,11 @@ description: "Les Ecoutes de la Profondeur"
 
 <p class="home-intro">Des podcasts. Une exigence. Tout explorer, ne rien figer.</p>
 
+<div class="player-global">
+<p class="podcasts-section-title" style="margin-bottom:24px;">Ecouter le label</p>
+<iframe name="Ausha Podcast Player" frameborder="0" loading="lazy" id="ausha-Xdwd" height="420" style="border: none; width:100%; height:420px" src="https://player.ausha.co/?showId=BD34s8Q9XL4b&color=%23C4934A&display=horizontal&multishow=true&playlist=true&dark=true&v=3&playerId=ausha-Xdwd"></iframe><script src="https://player.ausha.co/ausha-player.js"></script>
+</div>
+
 <p class="podcasts-section-title">Nos emissions</p>
 
 <div class="podcasts-grid">
