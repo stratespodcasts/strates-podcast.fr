@@ -56,7 +56,7 @@
 
   <meta itemprop="name" content="STRATES">
   <meta itemprop="description" content="Les Ecoutes de la Profondeur">
-  <meta itemprop="wordCount" content="94">
+  <meta itemprop="wordCount" content="103">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="STRATES">
   <meta name="twitter:description" content="Les Ecoutes de la Profondeur">
@@ -431,6 +431,189 @@ a.podcast-card {
   margin: 40px auto;
   padding: 0 16px;
 }
+ 
+.strates-player {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.strates-player-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--argile);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.sp-player {
+  background: #1a1a1a;
+  border: 1px solid rgba(196,147,74,0.3);
+  overflow: hidden;
+}
+
+.sp-current {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: #222;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.sp-cover {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid rgba(196,147,74,0.3);
+}
+
+.sp-play-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--argile);
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.sp-play-btn:hover { background: var(--sable); }
+
+.sp-play-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--noir);
+  margin-left: 3px;
+}
+
+.sp-pause-icon { display: none; }
+.sp-playing .sp-play-icon { display: none; }
+.sp-playing .sp-pause-icon { display: block; }
+
+.sp-info { flex: 1; min-width: 0; }
+
+.sp-show-name {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--argile);
+  margin-bottom: 4px;
+  font-family: 'Jost', sans-serif;
+}
+
+.sp-ep-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  color: var(--blanc);
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sp-duration {
+  font-size: 0.75rem;
+  color: rgba(245,240,229,0.4);
+  font-family: 'Jost', sans-serif;
+}
+
+.sp-waveform {
+  height: 4px;
+  background: rgba(255,255,255,0.08);
+  margin: 0 20px 0 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.sp-progress {
+  height: 100%;
+  background: var(--argile);
+  width: 0%;
+  transition: width 0.1s;
+}
+
+.sp-time-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 20px 12px;
+  font-size: 0.7rem;
+  color: rgba(245,240,229,0.35);
+  font-family: 'Jost', sans-serif;
+}
+
+.sp-list {
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.sp-list::-webkit-scrollbar { width: 4px; }
+.sp-list::-webkit-scrollbar-track { background: transparent; }
+.sp-list::-webkit-scrollbar-thumb { background: rgba(196,147,74,0.3); }
+
+.sp-episode {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.sp-episode:hover { background: rgba(255,255,255,0.04); }
+.sp-episode.active { background: rgba(196,147,74,0.08); }
+
+.sp-ep-cover {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid rgba(196,147,74,0.2);
+}
+
+.sp-ep-info { flex: 1; min-width: 0; }
+
+.sp-ep-show {
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--argile);
+  font-family: 'Jost', sans-serif;
+  margin-bottom: 2px;
+}
+
+.sp-ep-name {
+  font-size: 0.82rem;
+  color: rgba(245,240,229,0.8);
+  font-family: 'Jost', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sp-ep-dur {
+  font-size: 0.7rem;
+  color: rgba(245,240,229,0.3);
+  font-family: 'Jost', sans-serif;
+  flex-shrink: 0;
+}
+
+.sp-loading {
+  text-align: center;
+  padding: 40px;
+  color: rgba(245,240,229,0.3);
+  font-size: 0.8rem;
+  font-family: 'Jost', sans-serif;
+  letter-spacing: 0.2em;
+}
 </style>
 
 <script>
@@ -530,9 +713,32 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 <div class="ph3 ph5-l pv3 pv4-l center">
   <p class="home-intro">Des podcasts. Une exigence. Tout explorer, ne rien figer.</p>
-<div class="player-global">
-<p class="podcasts-section-title" style="margin-bottom:24px;">Ecouter le label</p>
-<iframe name="Ausha Podcast Player" frameborder="0" loading="lazy" id="ausha-Xdwd" height="420" style="border: none; width:100%; height:420px" src="https://player.ausha.co/?showId=BD34s8Q9XL4b&color=%23C4934A&display=horizontal&multishow=true&playlist=true&dark=true&v=3&playerId=ausha-Xdwd"></iframe><script src="https://player.ausha.co/ausha-player.js"></script>
+<div class="strates-player">
+<p class="strates-player-title">Ecouter le label</p>
+<div class="sp-player" id="strates-player">
+<div class="sp-current">
+<button class="sp-play-btn" id="sp-play" onclick="spToggle()">
+<svg class="sp-play-icon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+<svg class="sp-pause-icon" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+</button>
+<img class="sp-cover" id="sp-cover" src="/images/goodmorning.png" alt="">
+<div class="sp-info">
+<div class="sp-show-name" id="sp-show">Chargement...</div>
+<div class="sp-ep-title" id="sp-title">Chargement des episodes</div>
+<div class="sp-duration" id="sp-dur"></div>
+</div>
+</div>
+<div class="sp-waveform" onclick="spSeek(event)">
+<div class="sp-progress" id="sp-prog"></div>
+</div>
+<div class="sp-time-row">
+<span id="sp-cur">0:00</span>
+<span id="sp-tot">0:00</span>
+</div>
+<div class="sp-list" id="sp-list">
+<div class="sp-loading">Chargement des emissions...</div>
+</div>
+</div>
 </div>
 <p class="podcasts-section-title">Nos emissions</p>
 <div class="podcasts-grid">
@@ -577,6 +783,124 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 </a>
 </div>
+<script>
+var spAudio = new Audio();
+var spEpisodes = [];
+var spCurrent = 0;
+var spFeeds = [
+  {url: 'https://feed.ausha.co/BD34s8Q9XL4b', show: 'Good Morning la Galaxie', cover: '/images/goodmorning.png'},
+  {url: 'https://feed.ausha.co/owE9IqM4EWgb', show: 'Candide en Vers', cover: '/images/candide.png'}
+];
+
+function spFmt(s) {
+  s = Math.floor(s);
+  var m = Math.floor(s/60);
+  var sec = s%60;
+  return m+':'+(sec<10?'0':'')+sec;
+}
+
+function spLoad(idx) {
+  var ep = spEpisodes[idx];
+  spCurrent = idx;
+  document.getElementById('sp-title').textContent = ep.title;
+  document.getElementById('sp-show').textContent = ep.show;
+  document.getElementById('sp-cover').src = ep.cover;
+  document.getElementById('sp-dur').textContent = ep.duration;
+  spAudio.src = ep.url;
+  document.querySelectorAll('.sp-episode').forEach(function(el, i) {
+    el.classList.toggle('active', i === idx);
+  });
+}
+
+function spToggle() {
+  if (spAudio.paused) {
+    spAudio.play();
+    document.getElementById('strates-player').classList.add('sp-playing');
+  } else {
+    spAudio.pause();
+    document.getElementById('strates-player').classList.remove('sp-playing');
+  }
+}
+
+function spSeek(e) {
+  var bar = e.currentTarget;
+  var ratio = e.offsetX / bar.offsetWidth;
+  spAudio.currentTime = ratio * spAudio.duration;
+}
+
+spAudio.addEventListener('timeupdate', function() {
+  if (spAudio.duration) {
+    var pct = (spAudio.currentTime / spAudio.duration) * 100;
+    document.getElementById('sp-prog').style.width = pct+'%';
+    document.getElementById('sp-cur').textContent = spFmt(spAudio.currentTime);
+    document.getElementById('sp-tot').textContent = spFmt(spAudio.duration);
+  }
+});
+
+spAudio.addEventListener('ended', function() {
+  document.getElementById('strates-player').classList.remove('sp-playing');
+  if (spCurrent < spEpisodes.length - 1) {
+    spLoad(spCurrent + 1);
+    spAudio.play();
+    document.getElementById('strates-player').classList.add('sp-playing');
+  }
+});
+
+async function spFetch() {
+  var list = document.getElementById('sp-list');
+  var allEps = [];
+  for (var f of spFeeds) {
+    try {
+      var resp = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(f.url));
+      var data = await resp.json();
+      var parser = new DOMParser();
+      var xml = parser.parseFromString(data.contents, 'text/xml');
+      var items = xml.querySelectorAll('item');
+      var feedCover = f.cover;
+      items.forEach(function(item) {
+        var enc = item.querySelector('enclosure');
+        var dur = item.querySelector('duration');
+        if (enc) {
+          allEps.push({
+            title: item.querySelector('title').textContent,
+            show: f.show,
+            url: enc.getAttribute('url'),
+            cover: feedCover,
+            duration: dur ? dur.textContent : '',
+            date: new Date(item.querySelector('pubDate') ? item.querySelector('pubDate').textContent : 0)
+          });
+        }
+      });
+    } catch(e) { console.log(e); }
+  }
+  allEps.sort(function(a,b) { return b.date - a.date; });
+  spEpisodes = allEps;
+  if (allEps.length === 0) {
+    list.innerHTML = '<div class="sp-loading">Aucun episode disponible</div>';
+    return;
+  }
+  list.innerHTML = '';
+  allEps.forEach(function(ep, i) {
+    var div = document.createElement('div');
+    div.className = 'sp-episode' + (i===0?' active':'');
+    div.innerHTML =
+      '<img class="sp-ep-cover" src="'+ep.cover+'" alt="">' +
+      '<div class="sp-ep-info">' +
+        '<div class="sp-ep-show">'+ep.show+'</div>' +
+        '<div class="sp-ep-name">'+ep.title+'</div>' +
+      '</div>' +
+      '<div class="sp-ep-dur">'+ep.duration+'</div>';
+    div.onclick = function() {
+      spLoad(i);
+      spAudio.play();
+      document.getElementById('strates-player').classList.add('sp-playing');
+    };
+    list.appendChild(div);
+  });
+  spLoad(0);
+}
+spFetch();
+</script>
 
 </div>
 

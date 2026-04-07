@@ -430,6 +430,189 @@ a.podcast-card {
   margin: 40px auto;
   padding: 0 16px;
 }
+ 
+.strates-player {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 16px;
+}
+
+.strates-player-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--argile);
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.sp-player {
+  background: #1a1a1a;
+  border: 1px solid rgba(196,147,74,0.3);
+  overflow: hidden;
+}
+
+.sp-current {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: #222;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.sp-cover {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid rgba(196,147,74,0.3);
+}
+
+.sp-play-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--argile);
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.sp-play-btn:hover { background: var(--sable); }
+
+.sp-play-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--noir);
+  margin-left: 3px;
+}
+
+.sp-pause-icon { display: none; }
+.sp-playing .sp-play-icon { display: none; }
+.sp-playing .sp-pause-icon { display: block; }
+
+.sp-info { flex: 1; min-width: 0; }
+
+.sp-show-name {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--argile);
+  margin-bottom: 4px;
+  font-family: 'Jost', sans-serif;
+}
+
+.sp-ep-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.9rem;
+  color: var(--blanc);
+  margin-bottom: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sp-duration {
+  font-size: 0.75rem;
+  color: rgba(245,240,229,0.4);
+  font-family: 'Jost', sans-serif;
+}
+
+.sp-waveform {
+  height: 4px;
+  background: rgba(255,255,255,0.08);
+  margin: 0 20px 0 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+.sp-progress {
+  height: 100%;
+  background: var(--argile);
+  width: 0%;
+  transition: width 0.1s;
+}
+
+.sp-time-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 20px 12px;
+  font-size: 0.7rem;
+  color: rgba(245,240,229,0.35);
+  font-family: 'Jost', sans-serif;
+}
+
+.sp-list {
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.sp-list::-webkit-scrollbar { width: 4px; }
+.sp-list::-webkit-scrollbar-track { background: transparent; }
+.sp-list::-webkit-scrollbar-thumb { background: rgba(196,147,74,0.3); }
+
+.sp-episode {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.sp-episode:hover { background: rgba(255,255,255,0.04); }
+.sp-episode.active { background: rgba(196,147,74,0.08); }
+
+.sp-ep-cover {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border: 1px solid rgba(196,147,74,0.2);
+}
+
+.sp-ep-info { flex: 1; min-width: 0; }
+
+.sp-ep-show {
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--argile);
+  font-family: 'Jost', sans-serif;
+  margin-bottom: 2px;
+}
+
+.sp-ep-name {
+  font-size: 0.82rem;
+  color: rgba(245,240,229,0.8);
+  font-family: 'Jost', sans-serif;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sp-ep-dur {
+  font-size: 0.7rem;
+  color: rgba(245,240,229,0.3);
+  font-family: 'Jost', sans-serif;
+  flex-shrink: 0;
+}
+
+.sp-loading {
+  text-align: center;
+  padding: 40px;
+  color: rgba(245,240,229,0.3);
+  font-size: 0.8rem;
+  font-family: 'Jost', sans-serif;
+  letter-spacing: 0.2em;
+}
 </style>
 
 <script>
