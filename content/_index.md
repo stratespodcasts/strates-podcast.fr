@@ -143,40 +143,47 @@ spAudio.addEventListener('ended', function() {
 });
 
 async function spFetchOne(f) {
-  var controller = new AbortController();
-  var timeout = setTimeout(function() { controller.abort(); }, 8000);
-  try {
-    var resp = await fetch(
-      'https://corsproxy.io/?' + encodeURIComponent(f.url),
-      { signal: controller.signal }
-    );
-    clearTimeout(timeout);
-    var text = await resp.text();
-    var parser = new DOMParser();
-    var xml = parser.parseFromString(text, 'text/xml');
-    var items = xml.querySelectorAll('item');
-    var eps = [];
-    items.forEach(function(item) {
-      var enc = item.querySelector('enclosure');
-      var dur = item.querySelector('duration');
-      var pubDate = item.querySelector('pubDate');
-      if (enc) {
-        eps.push({
-          title: item.querySelector('title').textContent,
-          show: f.show,
-          url: enc.getAttribute('url'),
-          cover: f.cover,
-          duration: dur ? dur.textContent : '',
-          date: new Date(pubDate ? pubDate.textContent : 0)
-        });
-      }
-    });
-    return eps;
-  } catch(e) {
-    clearTimeout(timeout);
-    console.warn('Flux inaccessible :', f.show, e.message);
-    return [];
+  var proxies = [
+    function(u) { return 'https://api.allorigins.win/raw?url=' + encodeURIComponent(u); },
+    function(u) { return 'https://corsproxy.io/?' + encodeURIComponent(u); },
+    function(u) { return 'https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(u); }
+  ];
+  for (var i = 0; i < proxies.length; i++) {
+    var controller = new AbortController();
+    var timeout = setTimeout(function() { controller.abort(); }, 8000);
+    try {
+      var resp = await fetch(proxies[i](f.url), { signal: controller.signal });
+      clearTimeout(timeout);
+      if (!resp.ok) continue;
+      var text = await resp.text();
+      if (!text || !text.includes('<item>')) continue;
+      var parser = new DOMParser();
+      var xml = parser.parseFromString(text, 'text/xml');
+      var items = xml.querySelectorAll('item');
+      var eps = [];
+      items.forEach(function(item) {
+        var enc = item.querySelector('enclosure');
+        var dur = item.querySelector('duration');
+        var pubDate = item.querySelector('pubDate');
+        if (enc) {
+          eps.push({
+            title: item.querySelector('title').textContent,
+            show: f.show,
+            url: enc.getAttribute('url'),
+            cover: f.cover,
+            duration: dur ? dur.textContent : '',
+            date: new Date(pubDate ? pubDate.textContent : 0)
+          });
+        }
+      });
+      if (eps.length > 0) return eps;
+    } catch(e) {
+      clearTimeout(timeout);
+      console.warn('Proxy ' + i + ' echoue pour ' + f.show + ':', e.message);
+    }
   }
+  console.warn('Tous les proxies ont echoue pour :', f.show);
+  return [];
 }
 
 async function spFetch() {
@@ -186,7 +193,6 @@ async function spFetch() {
 
   var list = document.getElementById('sp-list');
 
-  // Fetch tous les flux en parallèle
   var results = await Promise.all(spFeeds.map(spFetchOne));
   var allEps = results.flat();
 
