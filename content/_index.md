@@ -31,6 +31,30 @@ description: "Les Ecoutes de la Profondeur"
 <div class="sp-list" id="sp-list">
 <div class="sp-loading">Chargement des emissions...</div>
 </div>
+
+<div class="sp-subscribe-bar">
+<button class="sp-subscribe-btn" onclick="spToggleSubscribe(event)">
+<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="margin-right:6px;vertical-align:middle"><path d="M12 1a9 9 0 0 1 9 9c0 4.97-7.22 12.08-8.55 13.28a.65.65 0 0 1-.9 0C10.22 22.08 3 14.97 3 10a9 9 0 0 1 9-9zm0 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+S'abonner au label
+</button>
+
+<div class="sp-subscribe-panel" id="sp-subscribe-panel">
+<p class="sp-subscribe-title">S'abonner au flux STRATES</p>
+<a class="sp-subscribe-app" href="podcastaddict://subscribe?url=https%3A%2F%2Fstrates-podcast.fr%2Ffeed.xml" target="_blank">
+<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+Podcast Addict
+</a>
+<a class="sp-subscribe-app" href="https://podcasts.apple.com/podcast/id?feedUrl=https%3A%2F%2Fstrates-podcast.fr%2Ffeed.xml" target="_blank">
+<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+Apple Podcasts
+</a>
+<button class="sp-subscribe-app sp-copy-btn" onclick="spCopyFeed()">
+<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+<span id="sp-copy-label">Copier l'URL du flux</span>
+</button>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -79,6 +103,86 @@ description: "Les Ecoutes de la Profondeur"
 </a>
 </div>
 
+<style>
+.sp-subscribe-bar {
+  position: relative;
+  padding: 10px 16px 12px;
+  border-top: 1px solid rgba(177,115,55,0.2);
+  text-align: center;
+}
+.sp-subscribe-btn {
+  background: none;
+  border: 1px solid rgba(177,115,55,0.5);
+  color: #C4934A;
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 7px 18px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.sp-subscribe-btn:hover {
+  border-color: #C4934A;
+  color: #D4A460;
+}
+.sp-subscribe-panel {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e1e1e;
+  border: 1px solid rgba(177,115,55,0.3);
+  border-radius: 4px;
+  padding: 14px 16px;
+  min-width: 240px;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
+.sp-subscribe-panel.open {
+  display: block;
+}
+.sp-subscribe-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #C4934A;
+  margin: 0 0 12px;
+}
+.sp-subscribe-app {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 3px;
+  color: #F5F0E5;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  box-sizing: border-box;
+}
+.sp-subscribe-app:hover {
+  background: rgba(177,115,55,0.12);
+  border-color: rgba(177,115,55,0.4);
+  color: #F5F0E5;
+}
+.sp-subscribe-app:last-child {
+  margin-bottom: 0;
+}
+.sp-copy-btn {
+  background: rgba(255,255,255,0.04) !important;
+}
+</style>
+
 <script>
 var spAudio = new Audio();
 var spEpisodes = [];
@@ -119,6 +223,30 @@ function spSeek(e) {
   var ratio = e.offsetX / bar.offsetWidth;
   spAudio.currentTime = ratio * spAudio.duration;
 }
+
+function spToggleSubscribe(e) {
+  e.stopPropagation();
+  var panel = document.getElementById('sp-subscribe-panel');
+  panel.classList.toggle('open');
+}
+
+function spCopyFeed() {
+  var url = 'https://strates-podcast.fr/feed.xml';
+  navigator.clipboard.writeText(url).then(function() {
+    var label = document.getElementById('sp-copy-label');
+    label.textContent = 'Copie !';
+    setTimeout(function() { label.textContent = "Copier l'URL du flux"; }, 2000);
+  });
+}
+
+document.addEventListener('click', function(e) {
+  var panel = document.getElementById('sp-subscribe-panel');
+  if (panel && panel.classList.contains('open')) {
+    if (!panel.contains(e.target) && !e.target.closest('.sp-subscribe-btn')) {
+      panel.classList.remove('open');
+    }
+  }
+});
 
 spAudio.addEventListener('timeupdate', function() {
   if (spAudio.duration) {
