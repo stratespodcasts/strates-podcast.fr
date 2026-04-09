@@ -56,7 +56,7 @@
 
   <meta itemprop="name" content="STRATES">
   <meta itemprop="description" content="Les Ecoutes de la Profondeur">
-  <meta itemprop="wordCount" content="103">
+  <meta itemprop="wordCount" content="118">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="STRATES">
   <meta name="twitter:description" content="Les Ecoutes de la Profondeur">
@@ -153,7 +153,8 @@ h1, h2, h3 {
 }
 
 .hero-full {
-  background: var(--noir);
+  background: linear-gradient(to bottom, rgba(18,18,18,0.7) 0%, rgba(18,18,18,0.85) 100%),
+              url('/images/hero-bg.png') center center / cover no-repeat;
   text-align: center;
   padding: 80px 20px 60px 20px;
   border-bottom: 1px solid var(--argile);
@@ -749,6 +750,27 @@ document.addEventListener('DOMContentLoaded', function() {
 <div class="sp-list" id="sp-list">
 <div class="sp-loading">Chargement des emissions...</div>
 </div>
+<div class="sp-subscribe-bar">
+<button class="sp-subscribe-btn" onclick="spToggleSubscribe(event)">
+<svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor" style="margin-right:6px;vertical-align:middle"><path d="M12 1a9 9 0 0 1 9 9c0 4.97-7.22 12.08-8.55 13.28a.65.65 0 0 1-.9 0C10.22 22.08 3 14.97 3 10a9 9 0 0 1 9-9zm0 6a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+S'abonner au label
+</button>
+<div class="sp-subscribe-panel" id="sp-subscribe-panel">
+<p class="sp-subscribe-title">S'abonner au flux STRATES</p>
+<a class="sp-subscribe-app" href="pcast://strates-podcast.fr/feed.xml" target="_blank">
+<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+Podcast Addict
+</a>
+<a class="sp-subscribe-app" href="https://podcasts.apple.com/podcast/id?feedUrl=https%3A%2F%2Fstrates-podcast.fr%2Ffeed.xml" target="_blank">
+<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>
+Apple Podcasts
+</a>
+<button class="sp-subscribe-app sp-copy-btn" onclick="spCopyFeed()">
+<svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+<span id="sp-copy-label">Copier l'URL du flux</span>
+</button>
+</div>
+</div>
 </div>
 </div>
 <p class="podcasts-section-title">Nos emissions</p>
@@ -794,14 +816,89 @@ document.addEventListener('DOMContentLoaded', function() {
 </div>
 </a>
 </div>
+<style>
+.sp-subscribe-bar {
+  position: relative;
+  padding: 10px 16px 12px;
+  border-top: 1px solid rgba(177,115,55,0.2);
+  text-align: center;
+}
+.sp-subscribe-btn {
+  background: none;
+  border: 1px solid rgba(177,115,55,0.5);
+  color: #C4934A;
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 7px 18px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.sp-subscribe-btn:hover {
+  border-color: #C4934A;
+  color: #D4A460;
+}
+.sp-subscribe-panel {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #1e1e1e;
+  border: 1px solid rgba(177,115,55,0.3);
+  border-radius: 4px;
+  padding: 14px 16px;
+  min-width: 240px;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.6);
+}
+.sp-subscribe-panel.open {
+  display: block;
+}
+.sp-subscribe-title {
+  font-family: 'Cinzel', serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #C4934A;
+  margin: 0 0 12px;
+}
+.sp-subscribe-app {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 3px;
+  color: #F5F0E5;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  box-sizing: border-box;
+}
+.sp-subscribe-app:hover {
+  background: rgba(177,115,55,0.12);
+  border-color: rgba(177,115,55,0.4);
+  color: #F5F0E5;
+}
+.sp-subscribe-app:last-child {
+  margin-bottom: 0;
+}
+.sp-copy-btn {
+  background: rgba(255,255,255,0.04) !important;
+}
+</style>
 <script>
 var spAudio = new Audio();
 var spEpisodes = [];
 var spCurrent = 0;
-var spFeeds = [
-  {url: 'https://feed.ausha.co/BD34s8Q9XL4b', show: 'Good Morning la Galaxie', cover: '/images/goodmorning.png'},
-  {url: 'https://feed.ausha.co/owE9IqM4EWgb', show: 'Candide en Vers', cover: '/images/candide.png'}
-];
 
 function spFmt(s) {
   s = Math.floor(s);
@@ -815,7 +912,11 @@ function spLoad(idx) {
   spCurrent = idx;
   document.getElementById('sp-title').textContent = ep.title;
   document.getElementById('sp-show').textContent = ep.show;
-  document.getElementById('sp-cover').src = ep.cover;
+  var coverEl = document.getElementById('sp-cover');
+  coverEl.src = ep.cover;
+  coverEl.onerror = function() {
+    this.src = ep.cover_fallback || '/images/goodmorning.png';
+  };
   document.getElementById('sp-dur').textContent = ep.duration;
   spAudio.src = ep.url;
   document.querySelectorAll('.sp-episode').forEach(function(el, i) {
@@ -839,6 +940,30 @@ function spSeek(e) {
   spAudio.currentTime = ratio * spAudio.duration;
 }
 
+function spToggleSubscribe(e) {
+  e.stopPropagation();
+  var panel = document.getElementById('sp-subscribe-panel');
+  panel.classList.toggle('open');
+}
+
+function spCopyFeed() {
+  var url = 'https://strates-podcast.fr/feed.xml';
+  navigator.clipboard.writeText(url).then(function() {
+    var label = document.getElementById('sp-copy-label');
+    label.textContent = 'Copie !';
+    setTimeout(function() { label.textContent = "Copier l'URL du flux"; }, 2000);
+  });
+}
+
+document.addEventListener('click', function(e) {
+  var panel = document.getElementById('sp-subscribe-panel');
+  if (panel && panel.classList.contains('open')) {
+    if (!panel.contains(e.target) && !e.target.closest('.sp-subscribe-btn')) {
+      panel.classList.remove('open');
+    }
+  }
+});
+
 spAudio.addEventListener('timeupdate', function() {
   if (spAudio.duration) {
     var pct = (spAudio.currentTime / spAudio.duration) * 100;
@@ -858,61 +983,51 @@ spAudio.addEventListener('ended', function() {
 });
 
 async function spFetch() {
-  // Déplacer le lecteur dans le hero
   var slot = document.getElementById('hero-player-slot');
   var player = document.getElementById('strates-player').parentElement;
   if (slot && player) slot.appendChild(player);
+
   var list = document.getElementById('sp-list');
-  var allEps = [];
-  for (var f of spFeeds) {
-    try {
-      var resp = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(f.url));
-      var data = await resp.json();
-      var parser = new DOMParser();
-      var xml = parser.parseFromString(data.contents, 'text/xml');
-      var items = xml.querySelectorAll('item');
-      var feedCover = f.cover;
-      items.forEach(function(item) {
-        var enc = item.querySelector('enclosure');
-        var dur = item.querySelector('duration');
-        if (enc) {
-          allEps.push({
-            title: item.querySelector('title').textContent,
-            show: f.show,
-            url: enc.getAttribute('url'),
-            cover: feedCover,
-            duration: dur ? dur.textContent : '',
-            date: new Date(item.querySelector('pubDate') ? item.querySelector('pubDate').textContent : 0)
-          });
-        }
-      });
-    } catch(e) { console.log(e); }
-  }
-  allEps.sort(function(a,b) { return b.date - a.date; });
-  spEpisodes = allEps;
-  if (allEps.length === 0) {
-    list.innerHTML = '<div class="sp-loading">Aucun episode disponible</div>';
-    return;
-  }
-  list.innerHTML = '';
-  allEps.forEach(function(ep, i) {
-    var div = document.createElement('div');
-    div.className = 'sp-episode' + (i===0?' active':'');
-    div.innerHTML =
-      '<img class="sp-ep-cover" src="'+ep.cover+'" alt="">' +
-      '<div class="sp-ep-info">' +
+  try {
+    var resp = await fetch('/episodes.json');
+    var eps = await resp.json();
+    spEpisodes = eps;
+    if (eps.length === 0) {
+      list.innerHTML = '<div class="sp-loading">Aucun episode disponible</div>';
+      return;
+    }
+    list.innerHTML = '';
+    eps.forEach(function(ep, i) {
+      var div = document.createElement('div');
+      div.className = 'sp-episode' + (i===0?' active':'');
+      var img = new Image();
+      img.className = 'sp-ep-cover';
+      img.alt = '';
+      img.src = ep.cover;
+      img.onerror = function() { this.src = ep.cover_fallback || '/images/goodmorning.png'; };
+      var info = document.createElement('div');
+      info.className = 'sp-ep-info';
+      info.innerHTML =
         '<div class="sp-ep-show">'+ep.show+'</div>' +
-        '<div class="sp-ep-name">'+ep.title+'</div>' +
-      '</div>' +
-      '<div class="sp-ep-dur">'+ep.duration+'</div>';
-    div.onclick = function() {
-      spLoad(i);
-      spAudio.play();
-      document.getElementById('strates-player').classList.add('sp-playing');
-    };
-    list.appendChild(div);
-  });
-  spLoad(0);
+        '<div class="sp-ep-name">'+ep.title+'</div>';
+      var dur = document.createElement('div');
+      dur.className = 'sp-ep-dur';
+      dur.textContent = ep.duration;
+      div.appendChild(img);
+      div.appendChild(info);
+      div.appendChild(dur);
+      div.onclick = function() {
+        spLoad(i);
+        spAudio.play();
+        document.getElementById('strates-player').classList.add('sp-playing');
+      };
+      list.appendChild(div);
+    });
+    spLoad(0);
+  } catch(e) {
+    list.innerHTML = '<div class="sp-loading">Erreur de chargement</div>';
+    console.error(e);
+  }
 }
 spFetch();
 </script>
