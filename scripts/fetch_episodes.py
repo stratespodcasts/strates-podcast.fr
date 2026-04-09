@@ -32,6 +32,11 @@ for feed in FEEDS:
             xml_data = resp.read()
         root = ET.fromstring(xml_data)
         ns = {"itunes": "http://www.itunes.com/dtds/podcast-1.0.dtd"}
+
+        # Vignette par défaut du podcast (niveau channel)
+        channel_image_el = root.find(".//channel/itunes:image", ns)
+        channel_cover = channel_image_el.get("href") if channel_image_el is not None else feed["cover"]
+
         for item in root.findall(".//item"):
             enc = item.find("enclosure")
             if enc is None:
@@ -41,6 +46,14 @@ for feed in FEEDS:
             duration_el = item.find("itunes:duration", ns)
             desc_el = item.find("description")
             guid_el = item.find("guid")
+
+            # Vignette spécifique à l'épisode, sinon celle du podcast
+            ep_image_el = item.find("itunes:image", ns)
+            if ep_image_el is not None:
+                ep_cover = ep_image_el.get("href", channel_cover)
+            else:
+                ep_cover = channel_cover
+
             title = title_el.text.strip() if title_el is not None else ""
             audio_url = enc.get("url", "")
             audio_type = enc.get("type", "audio/mpeg")
@@ -48,6 +61,7 @@ for feed in FEEDS:
             duration = duration_el.text.strip() if duration_el is not None else ""
             description = desc_el.text.strip() if desc_el is not None else ""
             guid = guid_el.text.strip() if guid_el is not None else audio_url
+
             try:
                 dt = parsedate_to_datetime(pubdate_el.text) if pubdate_el is not None else datetime(1970, 1, 1, tzinfo=timezone.utc)
                 date_iso = dt.isoformat()
@@ -57,10 +71,12 @@ for feed in FEEDS:
                 date_iso = ""
                 date_ts = 0
                 date_rfc = ""
+
             episodes.append({
-                "title": f"[{feed['show']}] {title}",
+                "title": title,
                 "show": feed["show"],
-                "cover": feed["cover"],
+                "cover": ep_cover,
+                "cover_fallback": feed["cover"],
                 "url": audio_url,
                 "audio_type": audio_type,
                 "audio_length": audio_length,
@@ -71,6 +87,7 @@ for feed in FEEDS:
                 "date_rfc": date_rfc,
                 "ts": date_ts
             })
+
         count = len([e for e in episodes if e['show'] == feed['show']])
         print(f"  -> {count} episodes")
     except Exception as e:
@@ -86,20 +103,21 @@ with open("static/episodes.json", "w", encoding="utf-8") as f:
     json.dump(episodes, f, ensure_ascii=False, indent=2)
 print(f"\nTotal : {len(episodes)} episodes -> static/episodes.json")
 
-# --- feed.xml agrégateur RSS pour Podcast Addict etc. ---
+# --- feed.xml agrégateur RSS ---
 now_rfc = format_datetime(datetime.now(timezone.utc))
 
 rss_items = ""
 for ep in episodes:
     rss_items += f"""
     <item>
-      <title><![CDATA[{ep['title']}]]></title>
+      <title><![CDATA[[{ep['show']}] {ep['title']}]]></title>
       <description><![CDATA[{ep['description']}]]></description>
       <enclosure url="{ep['url']}" length="{ep['audio_length']}" type="{ep['audio_type']}"/>
       <guid isPermaLink="false">{ep['guid']}</guid>
       <pubDate>{ep['date_rfc']}</pubDate>
       <itunes:duration>{ep['duration']}</itunes:duration>
       <itunes:author>{ep['show']}</itunes:author>
+      <itunes:image href="{ep['cover']}"/>
     </item>"""
 
 feed_xml = f"""<?xml version="1.0" encoding="UTF-8"?>

@@ -200,7 +200,11 @@ function spLoad(idx) {
   spCurrent = idx;
   document.getElementById('sp-title').textContent = ep.title;
   document.getElementById('sp-show').textContent = ep.show;
-  document.getElementById('sp-cover').src = ep.cover;
+  var coverEl = document.getElementById('sp-cover');
+  coverEl.src = ep.cover;
+  coverEl.onerror = function() {
+    this.src = ep.cover_fallback || '/images/goodmorning.png';
+  };
   document.getElementById('sp-dur').textContent = ep.duration;
   spAudio.src = ep.url;
   document.querySelectorAll('.sp-episode').forEach(function(el, i) {
@@ -284,13 +288,22 @@ async function spFetch() {
     eps.forEach(function(ep, i) {
       var div = document.createElement('div');
       div.className = 'sp-episode' + (i===0?' active':'');
-      div.innerHTML =
-        '<img class="sp-ep-cover" src="'+ep.cover+'" alt="">' +
-        '<div class="sp-ep-info">' +
-          '<div class="sp-ep-show">'+ep.show+'</div>' +
-          '<div class="sp-ep-name">'+ep.title+'</div>' +
-        '</div>' +
-        '<div class="sp-ep-dur">'+ep.duration+'</div>';
+      var img = new Image();
+      img.className = 'sp-ep-cover';
+      img.alt = '';
+      img.src = ep.cover;
+      img.onerror = function() { this.src = ep.cover_fallback || '/images/goodmorning.png'; };
+      var info = document.createElement('div');
+      info.className = 'sp-ep-info';
+      info.innerHTML =
+        '<div class="sp-ep-show">'+ep.show+'</div>' +
+        '<div class="sp-ep-name">'+ep.title+'</div>';
+      var dur = document.createElement('div');
+      dur.className = 'sp-ep-dur';
+      dur.textContent = ep.duration;
+      div.appendChild(img);
+      div.appendChild(info);
+      div.appendChild(dur);
       div.onclick = function() {
         spLoad(i);
         spAudio.play();
