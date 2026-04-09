@@ -142,39 +142,57 @@ spAudio.addEventListener('ended', function() {
   }
 });
 
+async function spFetchOne(f) {
+  var controller = new AbortController();
+  var timeout = setTimeout(function() { controller.abort(); }, 8000);
+  try {
+    var resp = await fetch(
+      'https://corsproxy.io/?' + encodeURIComponent(f.url),
+      { signal: controller.signal }
+    );
+    clearTimeout(timeout);
+    var text = await resp.text();
+    var parser = new DOMParser();
+    var xml = parser.parseFromString(text, 'text/xml');
+    var items = xml.querySelectorAll('item');
+    var eps = [];
+    items.forEach(function(item) {
+      var enc = item.querySelector('enclosure');
+      var dur = item.querySelector('duration');
+      var pubDate = item.querySelector('pubDate');
+      if (enc) {
+        eps.push({
+          title: item.querySelector('title').textContent,
+          show: f.show,
+          url: enc.getAttribute('url'),
+          cover: f.cover,
+          duration: dur ? dur.textContent : '',
+          date: new Date(pubDate ? pubDate.textContent : 0)
+        });
+      }
+    });
+    return eps;
+  } catch(e) {
+    clearTimeout(timeout);
+    console.warn('Flux inaccessible :', f.show, e.message);
+    return [];
+  }
+}
+
 async function spFetch() {
-  // Déplacer le lecteur dans le hero
   var slot = document.getElementById('hero-player-slot');
   var player = document.getElementById('strates-player').parentElement;
   if (slot && player) slot.appendChild(player);
+
   var list = document.getElementById('sp-list');
-  var allEps = [];
-  for (var f of spFeeds) {
-    try {
-      var resp = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent(f.url));
-      var data = await resp.json();
-      var parser = new DOMParser();
-      var xml = parser.parseFromString(data.contents, 'text/xml');
-      var items = xml.querySelectorAll('item');
-      var feedCover = f.cover;
-      items.forEach(function(item) {
-        var enc = item.querySelector('enclosure');
-        var dur = item.querySelector('duration');
-        if (enc) {
-          allEps.push({
-            title: item.querySelector('title').textContent,
-            show: f.show,
-            url: enc.getAttribute('url'),
-            cover: feedCover,
-            duration: dur ? dur.textContent : '',
-            date: new Date(item.querySelector('pubDate') ? item.querySelector('pubDate').textContent : 0)
-          });
-        }
-      });
-    } catch(e) { console.log(e); }
-  }
+
+  // Fetch tous les flux en parallèle
+  var results = await Promise.all(spFeeds.map(spFetchOne));
+  var allEps = results.flat();
+
   allEps.sort(function(a,b) { return b.date - a.date; });
   spEpisodes = allEps;
+
   if (allEps.length === 0) {
     list.innerHTML = '<div class="sp-loading">Aucun episode disponible</div>';
     return;
