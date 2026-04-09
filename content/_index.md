@@ -83,10 +83,6 @@ description: "Les Ecoutes de la Profondeur"
 var spAudio = new Audio();
 var spEpisodes = [];
 var spCurrent = 0;
-var spFeeds = [
-  {url: 'https://feed.ausha.co/BD34s8Q9XL4b', show: 'Good Morning la Galaxie', cover: '/images/goodmorning.png'},
-  {url: 'https://feed.ausha.co/owE9IqM4EWgb', show: 'Candide en Vers', cover: '/images/candide.png'}
-];
 
 function spFmt(s) {
   s = Math.floor(s);
@@ -142,86 +138,43 @@ spAudio.addEventListener('ended', function() {
   }
 });
 
-async function spFetchOne(f) {
-  var proxies = [
-    function(u) { return 'https://api.allorigins.win/raw?url=' + encodeURIComponent(u); },
-    function(u) { return 'https://corsproxy.io/?' + encodeURIComponent(u); },
-    function(u) { return 'https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(u); }
-  ];
-  for (var i = 0; i < proxies.length; i++) {
-    var controller = new AbortController();
-    var timeout = setTimeout(function() { controller.abort(); }, 8000);
-    try {
-      var resp = await fetch(proxies[i](f.url), { signal: controller.signal });
-      clearTimeout(timeout);
-      if (!resp.ok) continue;
-      var text = await resp.text();
-      if (!text || !text.includes('<item>')) continue;
-      var parser = new DOMParser();
-      var xml = parser.parseFromString(text, 'text/xml');
-      var items = xml.querySelectorAll('item');
-      var eps = [];
-      items.forEach(function(item) {
-        var enc = item.querySelector('enclosure');
-        var dur = item.querySelector('duration');
-        var pubDate = item.querySelector('pubDate');
-        if (enc) {
-          eps.push({
-            title: item.querySelector('title').textContent,
-            show: f.show,
-            url: enc.getAttribute('url'),
-            cover: f.cover,
-            duration: dur ? dur.textContent : '',
-            date: new Date(pubDate ? pubDate.textContent : 0)
-          });
-        }
-      });
-      if (eps.length > 0) return eps;
-    } catch(e) {
-      clearTimeout(timeout);
-      console.warn('Proxy ' + i + ' echoue pour ' + f.show + ':', e.message);
-    }
-  }
-  console.warn('Tous les proxies ont echoue pour :', f.show);
-  return [];
-}
-
 async function spFetch() {
   var slot = document.getElementById('hero-player-slot');
   var player = document.getElementById('strates-player').parentElement;
   if (slot && player) slot.appendChild(player);
 
   var list = document.getElementById('sp-list');
-
-  var results = await Promise.all(spFeeds.map(spFetchOne));
-  var allEps = results.flat();
-
-  allEps.sort(function(a,b) { return b.date - a.date; });
-  spEpisodes = allEps;
-
-  if (allEps.length === 0) {
-    list.innerHTML = '<div class="sp-loading">Aucun episode disponible</div>';
-    return;
+  try {
+    var resp = await fetch('/episodes.json');
+    var eps = await resp.json();
+    spEpisodes = eps;
+    if (eps.length === 0) {
+      list.innerHTML = '<div class="sp-loading">Aucun episode disponible</div>';
+      return;
+    }
+    list.innerHTML = '';
+    eps.forEach(function(ep, i) {
+      var div = document.createElement('div');
+      div.className = 'sp-episode' + (i===0?' active':'');
+      div.innerHTML =
+        '<img class="sp-ep-cover" src="'+ep.cover+'" alt="">' +
+        '<div class="sp-ep-info">' +
+          '<div class="sp-ep-show">'+ep.show+'</div>' +
+          '<div class="sp-ep-name">'+ep.title+'</div>' +
+        '</div>' +
+        '<div class="sp-ep-dur">'+ep.duration+'</div>';
+      div.onclick = function() {
+        spLoad(i);
+        spAudio.play();
+        document.getElementById('strates-player').classList.add('sp-playing');
+      };
+      list.appendChild(div);
+    });
+    spLoad(0);
+  } catch(e) {
+    list.innerHTML = '<div class="sp-loading">Erreur de chargement</div>';
+    console.error(e);
   }
-  list.innerHTML = '';
-  allEps.forEach(function(ep, i) {
-    var div = document.createElement('div');
-    div.className = 'sp-episode' + (i===0?' active':'');
-    div.innerHTML =
-      '<img class="sp-ep-cover" src="'+ep.cover+'" alt="">' +
-      '<div class="sp-ep-info">' +
-        '<div class="sp-ep-show">'+ep.show+'</div>' +
-        '<div class="sp-ep-name">'+ep.title+'</div>' +
-      '</div>' +
-      '<div class="sp-ep-dur">'+ep.duration+'</div>';
-    div.onclick = function() {
-      spLoad(i);
-      spAudio.play();
-      document.getElementById('strates-player').classList.add('sp-playing');
-    };
-    list.appendChild(div);
-  });
-  spLoad(0);
 }
 spFetch();
 </script>
