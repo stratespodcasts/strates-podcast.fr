@@ -58,7 +58,6 @@ Apple Podcasts
 </div>
 </div>
 
-{{ partial "newsletter-form.html" . }}
 <p class="podcasts-section-title">Nos emissions</p>
 
 <div class="podcasts-grid">
