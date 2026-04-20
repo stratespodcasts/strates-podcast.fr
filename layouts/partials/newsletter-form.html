@@ -1,82 +1,113 @@
 <section class="strates-newsletter">
   <div class="newsletter-inner">
-    <!-- Begin Brevo Form -->
-    <style>
-      #sib-container input::placeholder { text-align:left; font-family:Helvetica,sans-serif; color:#f5f0e5; }
-      #sib-container textarea::placeholder { text-align:left; font-family:Helvetica,sans-serif; color:#f5f0e5; }
-      #sib-container a { text-decoration:underline; color:#2BB2FC; }
-    </style>
-    <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
-    <div class="sib-form" style="text-align:center; background-color:transparent;">
-      <div id="sib-form-container" class="sib-form-container">
-        <div id="error-message" class="sib-form-message-panel" style="font-size:16px;text-align:left;font-family:Helvetica,sans-serif;color:#661d1d;background-color:#ffeded;border-radius:3px;border-color:#ff4949;max-width:540px;">
-          <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-            <span class="sib-form-message-panel__inner-text">Une faille dans la roche. Réessayez dans quelques instants.</span>
-          </div>
-        </div>
-        <div id="success-message" class="sib-form-message-panel" style="font-size:16px;text-align:left;font-family:Helvetica,sans-serif;color:#085229;background-color:#e7faf0;border-radius:3px;border-color:#13ce66;max-width:540px;">
-          <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-            <span class="sib-form-message-panel__inner-text">Vous venez de descendre d&#039;un cran. Bienvenue dans les strates.</span>
-          </div>
-        </div>
-        <div id="sib-container" class="sib-container--large sib-container--vertical" style="text-align:center;background-color:rgba(18,18,18,1);max-width:540px;border-radius:3px;border-width:1px;border-color:#C0CCD9;border-style:solid;direction:ltr">
-          <form id="sib-form" method="POST" action="https://5d7581f8.sibforms.com/serve/MUIFAJLd7jZgVQMLy1mE3yjqe8tqLcWPwq_5010egugHQKCk5gZtANZbNK02NTWu7P3aEItY9KZw4HcMg3kcAOps3DHxmeneRlK49udT0KkMIr9YqjtKk6wvLHPyG6mni2cn6UBjlMIQC0xtXbXDqgklVzzpnBJPEJr93hCeLu2JGTWonUO_NNzipoyORtAqdYSnjb1VlAQqe05I_Q==" data-type="subscription">
-            <div style="padding:8px 0;">
-              <div class="sib-form-block" style="font-size:32px;text-align:left;font-weight:700;font-family:Helvetica,sans-serif;color:#f5f0e5;background-color:transparent;">
-                <p>STRATES · La Lettre des Profondeurs</p>
-              </div>
-            </div>
-            <div style="padding:8px 0;">
-              <div class="sib-form-block" style="font-size:16px;text-align:left;font-family:Helvetica,sans-serif;color:#f5f0e5;background-color:transparent;">
-                <p>Nouveaux épisodes, découvertes sonores, regards éditoriaux. Une fois par mois, depuis les profondeurs.</p>
-              </div>
-            </div>
-            <div style="padding:8px 0;">
-              <div class="sib-input sib-form-block">
-                <div class="form__entry entry_block">
-                  <div class="form__label-row">
-                    <label class="entry__label" style="font-weight:700;font-size:16px;font-family:Helvetica,sans-serif;color:#f5f0e5;" for="PRENOM">Entrez votre PRENOM</label>
-                    <div class="entry__field">
-                      <input class="input" maxlength="200" type="text" id="PRENOM" name="PRENOM" autocomplete="off" placeholder="PRENOM" />
-                    </div>
-                  </div>
-                  <label class="entry__error entry__error--primary" style="font-size:16px;font-family:Helvetica,sans-serif;color:#661d1d;background-color:#ffeded;border-radius:3px;border-color:#ff4949;"></label>
-                </div>
-              </div>
-            </div>
-            <div style="padding:8px 0;">
-              <div class="sib-input sib-form-block">
-                <div class="form__entry entry_block">
-                  <div class="form__label-row">
-                    <label class="entry__label" style="font-weight:700;font-size:16px;font-family:Helvetica,sans-serif;color:#f5f0e5;" for="EMAIL" data-required="*">Veuillez renseigner votre adresse email pour vous inscrire</label>
-                    <div class="entry__field">
-                      <input class="input" type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="EMAIL" data-required="true" required />
-                    </div>
-                  </div>
-                  <label class="entry__error entry__error--primary" style="font-size:16px;font-family:Helvetica,sans-serif;color:#661d1d;background-color:#ffeded;border-radius:3px;border-color:#ff4949;"></label>
-                </div>
-              </div>
-            </div>
-            <div style="padding:8px 0;">
-              <div class="sib-form-block" style="text-align:left;">
-                <button class="sib-form-block__button sib-form-block__button-with-loader" style="font-size:16px;font-weight:700;font-family:Helvetica,sans-serif;color:#f5f0e5;background-color:#295079;border-radius:3px;border-width:0px;" form="sib-form" type="submit">DESCENDRE</button>
-              </div>
-            </div>
-            <input type="text" name="email_address_check" value="" class="input--hidden">
-            <input type="hidden" name="locale" value="fr">
-          </form>
-        </div>
+    <h2 class="newsletter-title">La Lettre des Profondeurs</h2>
+    <p class="newsletter-desc">Nouveaux épisodes, découvertes sonores, regards éditoriaux.<br>Une fois par mois, depuis les profondeurs.</p>
+    <form id="sib-form" method="POST" action="https://5d7581f8.sibforms.com/serve/MUIFAJLd7jZgVQMLy1mE3yjqe8tqLcWPwq_5010egugHQKCk5gZtANZbNK02NTWu7P3aEItY9KZw4HcMg3kcAOps3DHxmeneRlK49udT0KkMIr9YqjtKk6wvLHPyG6mni2cn6UBjlMIQC0xtXbXDqgklVzzpnBJPEJr93hCeLu2JGTWonUO_NNzipoyORtAqdYSnjb1VlAQqe05I_Q==" data-type="subscription">
+      <div class="newsletter-fields">
+        <input class="newsletter-input" type="text" name="PRENOM" placeholder="Prénom (facultatif)" autocomplete="off" />
+        <input class="newsletter-input" type="email" name="EMAIL" placeholder="Votre adresse email" required autocomplete="off" />
+        <input type="text" name="email_address_check" value="" style="display:none">
+        <input type="hidden" name="locale" value="fr">
       </div>
-    </div>
-    <script>
-      window.REQUIRED_CODE_ERROR_MESSAGE = 'Veuillez choisir un code pays';
-      window.LOCALE = 'fr';
-      window.EMAIL_INVALID_MESSAGE = "Cette adresse ne mène nulle part. Vérifiez et réessayez.";
-      window.REQUIRED_ERROR_MESSAGE = "Une strate manque. L'adresse email est indispensable.";
-      window.GENERIC_INVALID_MESSAGE = "Cette adresse ne mène nulle part. Vérifiez et réessayez.";
-      var AUTOHIDE = Boolean(0);
-    </script>
-    <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
-    <!-- End Brevo Form -->
+      <div class="newsletter-submit-row">
+        <button type="submit" class="newsletter-btn">Descendre</button>
+      </div>
+      <div id="newsletter-success" class="newsletter-msg newsletter-msg--success" style="display:none">
+        Vous venez de descendre d'un cran. Bienvenue dans les strates.
+      </div>
+      <div id="newsletter-error" class="newsletter-msg newsletter-msg--error" style="display:none">
+        Une faille dans la roche. Réessayez dans quelques instants.
+      </div>
+    </form>
   </div>
 </section>
+
+<style>
+.strates-newsletter {
+  background: transparent;
+  padding: 3rem 1rem 2rem;
+  text-align: center;
+  border-top: 1px solid rgba(177,115,55,0.2);
+  border-bottom: 1px solid rgba(177,115,55,0.2);
+  margin: 2rem 0;
+}
+.newsletter-inner {
+  max-width: 540px;
+  margin: 0 auto;
+}
+.newsletter-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #B17337;
+  margin: 0 0 1rem;
+}
+.newsletter-desc {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  color: #C8A97A;
+  line-height: 1.7;
+  margin: 0 0 1.8rem;
+}
+.newsletter-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+.newsletter-input {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(177,115,55,0.3);
+  border-radius: 2px;
+  padding: 0.75rem 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  color: #F5F0E5;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+.newsletter-input::placeholder {
+  color: rgba(200,169,122,0.5);
+}
+.newsletter-input:focus {
+  border-color: rgba(177,115,55,0.7);
+}
+.newsletter-submit-row {
+  text-align: center;
+}
+.newsletter-btn {
+  background: none;
+  border: 1px solid rgba(177,115,55,0.5);
+  color: #C4934A;
+  font-family: 'Cinzel', serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.7rem 2.5rem;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.newsletter-btn:hover {
+  border-color: #C4934A;
+  color: #D4A460;
+}
+.newsletter-msg {
+  margin-top: 1rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  padding: 0.6rem 1rem;
+  border-radius: 2px;
+}
+.newsletter-msg--success {
+  color: #a8d5b5;
+  border: 1px solid rgba(168,213,181,0.3);
+}
+.newsletter-msg--error {
+  color: #d5a8a8;
+  border: 1px solid rgba(213,168,168,0.3);
+}
+</style>
